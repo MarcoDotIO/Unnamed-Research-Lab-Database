@@ -1,0 +1,16 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[packages]
+waitress = "*"
+flask = "*"
+flask-login = "*"
+passlib = "*"
+
+[requires]
+python_version = "3.8"
+
+[scripts]
+serve = "python -m waitress --listen=*:5000 research_lab:app"
