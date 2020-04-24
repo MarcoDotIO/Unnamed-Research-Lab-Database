@@ -1,5 +1,70 @@
 body
 {
-    background-color: #eee;
+
+    background-color: hsl(0, 0%, 15%);
     font-family: 'Lato', sans-serif;
+    color: hsl(0, 0%, 95%);
+    margin: 0;
+}
+
+a
+{
+    color: inherit;
+}
+
+body > header
+{
+    display: flex;
+    justify-content: space-between;
+    box-sizing: border-box;
+    overflow: hidden;
+    background-color: hsl(0, 0%, 20%);
+    border-bottom: 1px solid hsl(0, 0%, 25%);
+    width: 100%;
+    padding: 0 calc((100% - 800pt) / 2);
+}
+
+body > header .title
+{
+    line-height: 1;
+    margin: 12pt;
+    font-size: 18pt;
+    font-weight: bold;
+}
+
+body > header nav ul
+{
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+body > header nav a
+{
+    line-height: 1;
+    font-size: 12pt;
+    display: inline-block;
+    padding: 15pt 12pt;
+    vertical-align: middle;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+body > header nav a:hover
+{
+    background-color: hsl(0, 0%, 25%);
+}
+
+body > main
+{
+    box-sizing: border-box;
+    margin: 0 auto;
+    padding: 0 12pt;
+    max-width: 800pt;
+}
+
+.error
+{
+    color: hsl(0, 80%, 80%);
 }
