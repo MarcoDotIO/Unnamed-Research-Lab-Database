@@ -3,7 +3,5 @@
 
 {% block main %}
 <h1>{{ title }}</h1>
-<p>{{ user.user_id }}</p>
-<p>{{ user.username }}</p>
-<p>{{ user.password_hash }}</p>
+<p>Hello, {{ current_user.details.full_name }}</p>
 {% endblock %}
