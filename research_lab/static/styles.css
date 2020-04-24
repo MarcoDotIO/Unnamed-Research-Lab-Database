@@ -3,13 +3,13 @@ body
 
     background-color: hsl(0, 0%, 15%);
     font-family: 'Lato', sans-serif;
-    color: hsl(0, 0%, 95%);
+    color: hsl(0, 0%, 90%);
     margin: 0;
 }
 
 a
 {
-    color: inherit;
+    color: hsl(0, 0%, 98%);
 }
 
 body > header
@@ -47,8 +47,6 @@ body > header nav a
     display: inline-block;
     padding: 15pt 12pt;
     vertical-align: middle;
-    text-decoration: none;
-    font-weight: bold;
 }
 
 body > header nav a:hover
