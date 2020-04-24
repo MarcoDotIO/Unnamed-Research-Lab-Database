@@ -7,7 +7,9 @@ verify_ssl = true
 waitress = "*"
 flask = "*"
 flask-login = "*"
+pugsql = "*"
 passlib = "*"
+argon2-cffi = "*"
 
 [requires]
 python_version = "3.8"
