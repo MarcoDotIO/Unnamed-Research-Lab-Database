@@ -19,7 +19,7 @@ body > header
     box-sizing: border-box;
     overflow: hidden;
     background-color: hsl(0, 0%, 20%);
-    border-bottom: 1px solid hsl(0, 0%, 25%);
+    border-bottom: 1px solid hsl(0, 0%, 35%);
     width: 100%;
     padding: 0 calc((100% - 800pt) / 2);
 }
@@ -47,11 +47,12 @@ body > header nav a
     display: inline-block;
     padding: 15pt 12pt;
     vertical-align: middle;
+    text-decoration: none;
 }
 
 body > header nav a:hover
 {
-    background-color: hsl(0, 0%, 25%);
+    background-color: hsl(0, 0%, 35%);
 }
 
 body > main
@@ -62,7 +63,53 @@ body > main
     max-width: 800pt;
 }
 
+label
+{
+    font-weight: bold;
+    display: inline-block;
+    width: 8em;
+}
+
+form
+{
+    display: flex;
+    gap: 12pt;
+    flex-direction: column;
+    align-items: center;
+}
+
+input[type='text'], input[type='password']
+{
+    width: 15em;
+    background: none;
+    border: none;
+    border-bottom: 1px solid hsl(0, 0%, 35%);
+    background-color: hsl(0, 0%, 20%);
+    padding: 6pt;
+    color: inherit;
+}
+
+input[type='submit']
+{
+    background: hsl(0, 0%, 20%);
+    border: none;
+    border-bottom: 1px solid hsl(0, 0%, 35%);
+    padding: 6pt 12pt;
+    color: hsl(0, 0%, 98%);
+    font-family: inherit;
+    font-weight: bold;
+    font-size: 12pt;
+    font-weight: normal;
+}
+
+input[type='submit']:hover
+{
+    cursor: pointer;
+    background: hsl(0, 0%, 35%);
+}
+
 .error
 {
-    color: hsl(0, 80%, 80%);
+    color: hsl(0, 90%, 80%);
+    font-weight: bold;
 }
