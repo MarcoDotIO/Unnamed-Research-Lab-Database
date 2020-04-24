@@ -8,6 +8,7 @@ waitress = "*"
 flask = "*"
 flask-login = "*"
 pugsql = "*"
+mysqlclient = "*"
 passlib = "*"
 argon2-cffi = "*"
 
