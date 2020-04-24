@@ -9,6 +9,10 @@ this is not the default option for 64-bit machines on the Python website,
 so you'll need to go out of your way to get an x86-64 version of the 
 installer.
 
+At time of writing,
+[this](https://www.python.org/ftp/python/3.8.2/python-3.8.2-amd64.exe) is 
+the latest 64-bit version of Python for Windows.
+
 1. Install an up-to-date Python with pip
 2. Update pip: `python -m pip install --upgrade pip --user`
 3. Install pipenv: `python -m pip install pipenv --user`
@@ -21,7 +25,8 @@ files.
 
 ## Running
 For the Windows command prompt:
-```set DB_URL=mysql://user:pass@host:port/database
+```
+set DB_URL=mysql://user:pass@host:port/database
 python -m pipenv run serve
 ```
 
