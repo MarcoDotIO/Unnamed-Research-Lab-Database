@@ -1,4 +1,4 @@
-from research_lab import app, User
+from research_lab import app, User, db
 from flask import redirect, render_template, request, abort
 from flask_login import login_user, logout_user, login_required
 from passlib.hash import argon2
@@ -29,9 +29,11 @@ def logout():
     return redirect('/login/')
 
 @app.route('/users/')
+@login_required
 def users():
-    pass
+    return render_template('users.j2', ulist=db.list_users())
 
 @app.route('/users/<int:user_id>/')
+@login_required
 def user(user_id):
-    pass
+    return render_template('user.j2', user=db.get_user_by_id(user_id=user_id))

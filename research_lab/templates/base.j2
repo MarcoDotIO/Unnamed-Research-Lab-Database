@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>{{ title }}</title>
+        <title>{{ title }} - Lab Manager</title>
         <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="/static/styles.css">
         {% block head %}
@@ -15,7 +15,11 @@
                 <ul>
                     {% if current_user.is_authenticated %}
                     <li><a href="/home/">Home</a></li>
+                    <li><a href="/users/">Users</a></li>
+                    <li><a href="/projects/">Projects</a></li>
                     <li><a href="/logout/">Logout</a></li>
+                    {% else %}
+                    <li><a href="/login/">Login</a></li>
                     {% endif %}
                 </ul>
             </nav>

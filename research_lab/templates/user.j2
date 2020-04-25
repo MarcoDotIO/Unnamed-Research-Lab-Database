@@ -1,7 +1,6 @@
 {% extends 'base.j2' %}
-{% set title = 'Home' %}
+{% set title = 'User: ' + user.full_name %}
 
 {% block main %}
 <h1>{{ title }}</h1>
-<p>Hello, {{ current_user.details.full_name }}!</p>
 {% endblock %}

@@ -13,8 +13,8 @@ login = LoginManager()
 login.init_app(app)
 
 class User(UserMixin):
-    def __init__(self, name):
-        self.details = db.get_user_by_name(name=name)
+    def __init__(self, username):
+        self.details = db.get_user_by_name(username=username)
     def get_id(self):
         if self.details != None:
             return str(self.details['username'])
