@@ -2,7 +2,7 @@ from research_lab import app, db
 from flask import redirect, render_template
 from flask_login import current_user, login_required
 
-from research_lab.routes import users
+from research_lab.routes import users, projects
 
 @app.route('/')
 def index():

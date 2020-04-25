@@ -7,16 +7,17 @@ from passlib.hash import argon2
 def login():
     if request.method == 'POST':
         if not request.form['username'] or not request.form['password']:
+            # shouldn't happen because of HTML required params, but just in case
             abort(400)
 
         user = User(request.form['username'])
-        if user.details == None:
+        if user.details == None: # no user with this name
             return render_template('login.j2', error='Invalid username or password.')
         
         if argon2.verify(request.form['password'], user.details['password_hash']):
             login_user(user)
             return redirect('/home/')
-        else:
+        else: # invalid password
             return render_template('login.j2', error='Invalid username or password.')
 
     return render_template('login.j2')
@@ -26,3 +27,11 @@ def login():
 def logout():
     logout_user()
     return redirect('/login/')
+
+@app.route('/users/')
+def users():
+    pass
+
+@app.route('/users/<int:user_id>/')
+def user(user_id):
+    pass
