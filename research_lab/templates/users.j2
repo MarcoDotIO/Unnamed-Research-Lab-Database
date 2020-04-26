@@ -5,7 +5,6 @@
 <h1>{{ title }}</h1>
 <table>
     <tr>
-        <th>User ID</th>
         <th>Full Name</th>
         <th>Username</th>
         <th>Permissions</th>
@@ -16,7 +15,6 @@
     </tr>
     {% for user in ulist %}
     <tr>
-        <td>{{ user.user_id }}</td>
         <td>{{ user.full_name }}</td>
         <td>{{ user.username }}</td>
         <td>{{ user.perm_level }}</td>

@@ -6,14 +6,12 @@
 <h2>Members</h2>
 <table>
     <tr>
-        <th>User ID</th>
         <th>Full Name</th>
         <th>Username</th>
         <th>Details</th>
     </tr>
     {% for user in members %}
     <tr>
-        <td>{{ user.user_id }}</td>
         <td>{{ user.full_name }}</td>
         <td>{{ user.username }}</td>
         <td><a href="/users/{{ user.user_id }}/">Link</a></td>
