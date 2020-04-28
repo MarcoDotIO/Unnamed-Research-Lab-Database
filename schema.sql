@@ -4,8 +4,7 @@ create table users (
     username varchar(20) not null,
     password_hash varchar(120) not null,
     perm_level enum('admin', 'standard') not null,
-    primary key (user_id),
-    unique (username)
+    primary key (user_id)
 );
 
 create table projects (
@@ -14,8 +13,7 @@ create table projects (
     start_date date,
     end_date date,
     active bool not null,
-    primary key (project_id),
-    unique (project_name)
+    primary key (project_id)
 );
 
 create table working_on (
@@ -30,8 +28,7 @@ create table spaces (
     space_id int not null auto_increment,
     space_name varchar(100) not null,
     reservable bool not null,
-    primary key (space_id),
-    unique (space_name)
+    primary key (space_id)
 );
 
 create table reservations (
@@ -48,7 +45,7 @@ create table reservations (
 create table items (
     item_id int not null auto_increment,
     item_name varchar(100) not null,
-    loanable bool not null,
+    loanable boolean not null,
     home_id int,
     primary key (item_id),
     foreign key (home_id) references spaces(space_id)
@@ -60,8 +57,11 @@ create table checkouts (
     user_id int not null,
     checkout_time datetime not null,
     due_time datetime not null,
-    active bool not null,
+    active boolean not null,
     primary key (checkout_id),
     foreign key (item_id) references items(item_id),
     foreign key (user_id) references users(user_id)
 );
+
+--create view users_extra as
+    
