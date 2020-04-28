@@ -42,7 +42,7 @@ create table reservations (
     end_time datetime not null,
     primary key (res_id),
     foreign key (user_id) references users(user_id),
-    foreign key (space_id) references lab_space(space_id)
+    foreign key (space_id) references spaces(space_id)
 );
 
 create table items (
@@ -51,7 +51,7 @@ create table items (
     loanable bool not null,
     home_id int,
     primary key (item_id),
-    foreign key (home_id) references lab_space(space_id)
+    foreign key (home_id) references spaces(space_id)
 );
 
 create table checkouts (
@@ -62,6 +62,6 @@ create table checkouts (
     due_time datetime not null,
     active bool not null,
     primary key (checkout_id),
-    foreign key (item_id) references item(item_id),
+    foreign key (item_id) references items(item_id),
     foreign key (user_id) references users(user_id)
 );
