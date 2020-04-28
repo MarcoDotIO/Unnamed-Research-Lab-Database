@@ -1,0 +1,16 @@
+{% extends 'base.j2' %}
+{% set title = 'Spaces' %}
+
+{% block main %}
+<h1>{{ title }}</h1>
+<table>
+    <tr>
+        <th>Space Name</th>
+    </tr>
+    {% for space in spaces %}
+    <tr>
+        <td>{{ space.space_name }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
