@@ -1,0 +1,21 @@
+{% extends 'base.j2' %}
+{% set title = 'Edit User: ' + user.full_name %}
+
+{% block main %}
+<h1>{{ title }}</h1>
+<form method="post">
+    <div>
+        <label for="full_name">Full Name</label>
+        <input name="full_name" type="text" placeholder="full name" value="{{ user.full_name }}" maxlength="100" required>
+    </div>
+    <div>
+        <label for="username">Username</label>
+        <input name="username" type="text" placeholder="username" value="{{ user.username }}" maxlength="20" required>
+    </div>
+    <div>
+        <label for="password">New Password</label>
+        <input name="password" type="password" placeholder="password" value="{{ user.password }}">
+    </div>
+    <input type="submit" value="Update Details">
+</form>
+{% endblock %}

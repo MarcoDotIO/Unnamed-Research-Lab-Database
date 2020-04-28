@@ -1,4 +1,4 @@
-from research_lab import app, User, db, login_required
+from research_lab import app, User, db, login_required, admin_required
 from flask import redirect, render_template, request, abort
 from flask_login import login_user, logout_user
 from passlib.hash import argon2
@@ -37,3 +37,24 @@ def users():
 @login_required
 def user(user_id):
     return render_template('user.j2', user=db.get_user_by_id(user_id=user_id))
+
+@app.route('/users/<int:user_id>/edit/', methods=['GET', 'POST'])
+@admin_required
+def edituser(user_id):
+    u = db.get_user_by_id(user_id=user_id)
+    if request.method == 'POST':
+        new_username = request.args.get('username', default=u['username'])
+
+        if db.get_user_by_name(new_username) != None:
+            abort(400)
+
+        db.update_user_details(
+            username=request.args.get('username', default=u['username']),
+            full_name=request.args.get('full_name', default=u['full_name'])
+        )
+
+        new_pass = request.args.get('password', default='')
+        if new_pass != '':
+            db.update_password(password=new_pass)
+
+    return render_template('edituser.j2', user=db.get_user_by_id(user_id=user_id))

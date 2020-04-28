@@ -4,7 +4,8 @@ create table users (
     username varchar(20) not null,
     password_hash varchar(120) not null,
     perm_level enum('admin', 'standard') not null,
-    primary key (user_id)
+    primary key (user_id),
+    unique (username)
 );
 
 create table projects (
@@ -13,7 +14,8 @@ create table projects (
     start_date date,
     end_date date,
     active bool not null,
-    primary key (project_id)
+    primary key (project_id),
+    unique (project_name)
 );
 
 create table working_on (
@@ -28,7 +30,8 @@ create table spaces (
     space_id int not null auto_increment,
     space_name varchar(100) not null,
     reservable bool not null,
-    primary key (space_id)
+    primary key (space_id),
+    unique (space_name)
 );
 
 create table reservations (
@@ -62,6 +65,3 @@ create table checkouts (
     foreign key (item_id) references item(item_id),
     foreign key (user_id) references users(user_id)
 );
-
---create view users_extra as
-    
