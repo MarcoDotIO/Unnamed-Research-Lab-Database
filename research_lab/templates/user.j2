@@ -3,4 +3,7 @@
 
 {% block main %}
 <h1>{{ title }}</h1>
+{% if current_user.details['perm_level'] == 'admin' %}
+<a href="/users/{{ user.user_id }}/edit/">Edit this user</a>
+{% endif %}
 {% endblock %}

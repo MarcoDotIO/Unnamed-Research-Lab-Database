@@ -43,18 +43,24 @@ def user(user_id):
 def edituser(user_id):
     u = db.get_user_by_id(user_id=user_id)
     if request.method == 'POST':
-        new_username = request.args.get('username', default=u['username'])
+        new_username = request.form['username']
 
-        if db.get_user_by_name(new_username) != None:
-            abort(400)
+        try: # test uniqueness of username
+            db.get_user_by_name(new_username)
+        except:
+            pass
+        else:
+            if new_username != u['username'] and new_username != '':
+                abort(400)
 
         db.update_user_details(
-            username=request.args.get('username', default=u['username']),
-            full_name=request.args.get('full_name', default=u['full_name'])
+            user_id=u['user_id'],
+            username=request.form['username'],
+            full_name=request.form['full_name']
         )
 
-        new_pass = request.args.get('password', default='')
+        new_pass = request.form['password']
         if new_pass != '':
-            db.update_password(password=new_pass)
+            db.update_password(user_id=u['user_id'], password=new_pass)
 
     return render_template('edituser.j2', user=db.get_user_by_id(user_id=user_id))
