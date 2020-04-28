@@ -87,7 +87,7 @@ insert into items (item_id, item_name, loanable, home_id) values
   2348,
   'Arduino Kit',
   true,
-  126
+  124
 );
 
 insert into checkouts (checkout_id, item_id, user_id, checkout_time, due_time, active) values
