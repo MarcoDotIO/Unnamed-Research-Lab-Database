@@ -23,3 +23,45 @@ create table working_on (
     foreign key (user_id) references users(user_id),
     foreign key (project_id) references projects(project_id)
 );
+
+create table lab_space (
+    space_id int not null auto_increment,
+    space_name varchar(100) not null,
+    reservable bool not null,
+    primary key (space_id)
+);
+
+create table reservation (
+    res_id int not null auto_increment,
+    user_id int not null,
+    space_id int not null,
+    start_time datetime not null,
+    end_time datetime not null,
+    primary key (res_id),
+    foreign key (user_id) references users(user_id),
+    foreign key (space_id) references lab_space(space_id)
+);
+
+create table item (
+    item_id int not null auto_increment,
+    item_name varchar(100) not null,
+    loanable bool not null,
+    home_id int,
+    primary key (item_id),
+    foreign key (home_id) references lab_space(space_id)
+);
+
+create table checkout (
+    checkout_id int not null auto_increment,
+    item_id int not null,
+    user_id int not null,
+    checkout_time datetime not null,
+    due_time datetime not null,
+    active bool not null,
+    primary key (checkout_id),
+    foreign key (item_id) references item(item_id),
+    foreign key (user_id) references users(user_id)
+);
+
+--create view users_extra as
+    
