@@ -8,9 +8,6 @@
         <th>Full Name</th>
         <th>Username</th>
         <th>Permissions</th>
-        <th><abbr title="Active / Total">Projects</abbr></th>
-        <th><abbr title="Active / Total">Reservations</abbr></th>
-        <th><abbr title="Active / Total">Checkouts</abbr></th>
         <th>Details</th>
     </tr>
     {% for user in ulist %}
@@ -18,9 +15,6 @@
         <td>{{ user.full_name }}</td>
         <td>{{ user.username }}</td>
         <td>{{ user.perm_level }}</td>
-        <td></td>
-        <td></td>
-        <td></td>
         <td><a href="/users/{{ user.user_id }}/">Link</a></td>
     </tr>
     {% endfor %}

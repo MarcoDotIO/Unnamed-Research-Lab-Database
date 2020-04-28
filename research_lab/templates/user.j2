@@ -6,4 +6,13 @@
 {% if current_user.details['perm_level'] == 'admin' %}
 <a href="/users/{{ user.user_id }}/edit/">Edit this user</a>
 {% endif %}
+<p>Username: {{ user.username }}</p>
+<p>Permissions: {{ user.perm_level }}</p>
+
+<h2>Projects</h2>
+
+<h2>Checkouts</h2>
+
+<h2>Reservations</h2>
+
 {% endblock %}
