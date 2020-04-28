@@ -1,6 +1,6 @@
-from research_lab import app, User, db
+from research_lab import app, User, db, login_required
 from flask import redirect, render_template, request, abort
-from flask_login import login_user, logout_user, login_required
+from flask_login import login_user, logout_user
 from passlib.hash import argon2
 
 @app.route('/login/', methods=['GET', 'POST'])

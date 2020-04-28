@@ -1,6 +1,5 @@
-from research_lab import app, db
+from research_lab import app, db, login_required
 from flask import render_template
-from flask_login import login_required
 
 @app.route('/projects/')
 @login_required

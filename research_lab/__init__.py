@@ -1,6 +1,6 @@
 from os import urandom, environ
-from flask import Flask
-from flask_login import LoginManager, UserMixin
+from flask import Flask, redirect
+from flask_login import LoginManager, UserMixin, current_user
 from pugsql import module
 
 app = Flask(__name__)
@@ -24,5 +24,25 @@ class User(UserMixin):
 @login.user_loader
 def load_user(user_id):
     return User(user_id)
+
+def login_required(fn):
+    @wraps(fn)
+    def decorated_view(*args, **kwargs):
+        if current_user.is_authenticated:
+            return fn(*args, **kwargs)
+        else:
+            return redirect('/login/')
+    return decorated_view
+
+def admin_required(fn):
+    @wraps(fn)
+    def decorated_view(*args, **kwargs):
+        if current_user.details['perm_level'] == 'admin':
+            return fn(*args, **kwargs)
+        elif current_user.is_authenticated:
+            return redirect('/home/')
+        else:
+            return redirect('/login/')
+    return decorated_view
 
 from research_lab import routes
