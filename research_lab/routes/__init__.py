@@ -14,4 +14,6 @@ def index():
 @app.route('/home/')
 @login_required
 def home():
-    return render_template('home.j2')
+    return render_template('home.j2',
+        checkouts=db.get_items_by_loanee(user_id=current_user.details['user_id'])
+    )

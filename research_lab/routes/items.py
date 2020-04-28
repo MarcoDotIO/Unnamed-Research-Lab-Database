@@ -1,4 +1,4 @@
-from research_lab import app, db, login_required
+from research_lab import app, db, login_required, admin_required
 from flask import render_template, request, redirect
 from flask_login import current_user
 
@@ -24,3 +24,16 @@ def return_item(item_id):
     if db.get_item_by_id(item_id=item_id)['user_id'] == current_user.details['user_id']:
         db.return_item(item_id=item_id)
     return redirect('/items/')
+
+@app.route('/items/add/', methods=['GET', 'POST'])
+@login_required
+def additem():
+    if request.method == 'POST':
+        db.add_item(
+            item_id=request.form['item_id'],
+            item_name=request.form['item_name'],
+            loanable=1,
+            home_id=request.form['home_id'],
+        )
+
+    return render_template('additem.j2')

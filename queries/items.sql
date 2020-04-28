@@ -15,3 +15,8 @@ update checkouts set active = false
 insert into checkouts
     (item_id, user_id, checkout_time, due_time, active) values
     (:item_id, :user_id, curtime(), curtime(), 1);
+
+-- :name add_item :insert
+insert into items
+    (item_id, item_name, loanable, home_id) values
+    (:item_id, :item_name, :loanable, :home_id);

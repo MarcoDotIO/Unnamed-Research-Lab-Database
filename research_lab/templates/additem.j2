@@ -1,0 +1,25 @@
+{% extends 'base.j2' %}
+{% set title = 'Add Item' %}
+
+{% block main %}
+<h1>{{ title }}</h1>
+<form method="post">
+    <div>
+        <label for="item_id">Item ID</label>
+        <input name="item_id" type="number" placeholder="1111" required>
+    </div>
+    <div>
+        <label for="item_name">Item Name</label>
+        <input name="item_name" type="text" placeholder="name" maxlength="100" required>
+    </div>
+    <div>
+        <label for="home_id">Home Space ID</label>
+        <input name="home_id" type="number" placeholder="1111" required>
+    </div>
+    <div>
+        <label for="loanable">Loanable?</label>
+        <input name="loanable" type="checkbox">
+    </div>
+    <input type="submit" value="Add Item">
+</form>
+{% endblock %}

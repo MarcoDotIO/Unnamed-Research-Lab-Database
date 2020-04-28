@@ -4,4 +4,34 @@
 {% block main %}
 <h1>{{ title }}</h1>
 <p>Hello, {{ current_user.details.full_name }}!</p>
+<h2>My Projects</h2>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Details</th>
+    </tr>
+    {% for proj in active %}
+    <tr>
+        <td>{{ proj.project_name }}</td>
+        <td><a href="/projects/{{ proj.project_id }}/">Link</a></td>
+    </tr>
+    {% endfor %}
+</table>
+<h2>My Checkouts</h2>
+<table>
+    <tr>
+        <th>Item ID</th>
+        <th>Item Name</th>
+        <th>Home Space</th>
+        <th></th>
+    </tr>
+    {% for item in checkouts %}
+    <tr>
+        <td>{{ item.item_id }}</td>
+        <td>{{ item.item_name }}</td>
+        <td>{{ item.space_name }}</td>
+        <td><a href="/items/{{ item.item_id }}/return/">Mark Returned</a></td>
+    </tr>
+    {% endfor %}
+</table>
 {% endblock %}
