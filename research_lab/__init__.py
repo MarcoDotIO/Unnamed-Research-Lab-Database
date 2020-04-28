@@ -38,7 +38,7 @@ def login_required(fn):
 def admin_required(fn):
     @wraps(fn)
     def decorated_view(*args, **kwargs):
-        if current_user.details['perm_level'] == 'admin':
+        if current_user.is_authenticated and current_user.details['perm_level'] == 'admin':
             return fn(*args, **kwargs)
         elif current_user.is_authenticated:
             return redirect('/home/')
