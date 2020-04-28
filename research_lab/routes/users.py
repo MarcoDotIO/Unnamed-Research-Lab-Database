@@ -61,6 +61,7 @@ def edituser(user_id):
 
         new_pass = request.form['password']
         if new_pass != '':
+            new_pass = argon2.hash(new_pass)
             db.update_password(user_id=u['user_id'], password=new_pass)
 
     return render_template('edituser.j2', user=db.get_user_by_id(user_id=user_id))
