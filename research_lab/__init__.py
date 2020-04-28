@@ -1,4 +1,5 @@
 from os import urandom, environ
+from functools import wraps
 from flask import Flask, redirect
 from flask_login import LoginManager, UserMixin, current_user
 from pugsql import module
