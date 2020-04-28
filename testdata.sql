@@ -2,31 +2,31 @@ insert into users (full_name, username, password_hash, perm_level) values
 (
     'John Doe',
     'jdoe2',
-    '827ccb0eea8a706c4c34a16891f84e7b',
+    '$argon2id$v=19$m=102400,t=2,p=8$USpFSElJaY2xdi5lzHlPqQ$7Mz5qLoT0Wvhci/dTKfa2A',
     'admin'
 ),
 (
     'Kim Jun-su',
     'kjunsu9',
-    '20fa6bb5b5a6edf2c957f62e56711cd5',
+    '$argon2id$v=19$m=102400,t=2,p=8$USpFSElJaY2xdi5lzHlPqQ$7Mz5qLoT0Wvhci/dTKfa2A',
     'admin'
 ),
 (
     'Billy Bob',
     'bbob5',
-    '32e3dd9f5ad6bcdd2ff6992dedf07696',
+    '$argon2id$v=19$m=102400,t=2,p=8$USpFSElJaY2xdi5lzHlPqQ$7Mz5qLoT0Wvhci/dTKfa2A',
     'standard'
 ),
 (
     'Marco Polo',
     'mpolo4',
-    '4552c736773d3f92eae1b4f6cad600b7',
+    '$argon2id$v=19$m=102400,t=2,p=8$USpFSElJaY2xdi5lzHlPqQ$7Mz5qLoT0Wvhci/dTKfa2A',
     'standard'
 ),
 (
     'Raymond Forta',
     'rforta7',
-    '5580c0b7075b8e2cc447e2388d8c0fd7',
+    '$argon2id$v=19$m=102400,t=2,p=8$USpFSElJaY2xdi5lzHlPqQ$7Mz5qLoT0Wvhci/dTKfa2A',
     'standard'
 );
 
