@@ -3,11 +3,10 @@
 
 {% block main %}
 <h1>{{ title }}</h1>
+<p>{{ user.username }} ({{ user.perm_level }})</p>
 {% if current_user.details['perm_level'] == 'admin' %}
 <a href="/users/{{ user.user_id }}/edit/">Edit this user</a>
 {% endif %}
-<p>Username: {{ user.username }}</p>
-<p>Permissions: {{ user.perm_level }}</p>
 
 <h2>Projects</h2>
 

@@ -63,5 +63,7 @@ create table checkouts (
     foreign key (user_id) references users(user_id)
 );
 
---create view users_extra as
-    
+create view items_ext as
+    select items.item_id, item_name, loanable, home_id, space_id, space_name, reservable, checkout_id, user_id, checkout_time, due_time, active
+	from items left join spaces on items.home_id = spaces.space_id
+	left join checkouts on checkouts.item_id = items.item_id and checkouts.active = 1;
